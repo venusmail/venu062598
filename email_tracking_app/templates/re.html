@@ -1,0 +1,28 @@
+<!-- templates/track_click.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Click</title>
+</head>
+<body>
+
+    <h1>Tracking Click...</h1>
+
+    <script>
+        // Use a service to get the public IP address
+        fetch('https://api64.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                const ipAddress = data.ip;
+
+                // Construct the URL
+                const url = `http://127.0.0.1:8000/em/tr${window.location.pathname.split('re')[1]}/${ipAddress}`;
+                
+                window.location.href = url;
+            });
+    </script>
+</body>
+</html>
